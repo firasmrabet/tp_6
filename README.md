@@ -2,6 +2,24 @@
 
 Un projet .NET 8 contenant une API REST et une application client Razor Pages pour gérer les écoles.
 
+## 🚀 Démarrage Rapide (3 étapes)
+
+1. **Clonez le repo:**
+   ```bash
+   git clone https://github.com/firasmrabet/tp_6.git
+   cd tp_6
+   ```
+
+2. **Ouvrez `TP6-Mrabet.sln`** dans Visual Studio
+
+3. **Lancez les deux projets:**
+   - Ouvrez le dropdown de lancement → Sélectionnez **"Nouveau profil"** → Appuyez sur `F5`
+   - Les deux applications démarreront automatiquement! ✅
+
+✨ **C'est tout!** Accédez à https://localhost:7100 pour l'interface
+
+---
+
 ## Structure du Projet
 
 - **SchoolAPI**: Une API REST construite avec ASP.NET Core Web API
@@ -21,35 +39,63 @@ git clone https://github.com/firasmrabet/tp_6.git
 cd tp_6
 ```
 
-### 2. Démarrer SQL Server LocalDB
-Ouvrez PowerShell et exécutez:
+### 2. Ouvrir le Projet
+Ouvrez le fichier **`TP6-Mrabet.sln`** avec Visual Studio
+
+### 3. Démarrer SQL Server LocalDB
+Ouvrez **PowerShell** et exécutez:
 ```powershell
 sqllocaldb start mssqllocaldb
 ```
 
-### 3. Appliquer les Migrations de Base de Données
-Dans Visual Studio, ouvrez la **Package Manager Console** et exécutez:
+### 4. Restaurer les NuGet Packages
+Dans Visual Studio:
+- **Build** → **Clean Solution**
+- **Build** → **Rebuild Solution**
+
+Ou via PowerShell:
+```powershell
+dotnet restore
+```
+
+### 5. Appliquer les Migrations de Base de Données
+Dans Visual Studio, ouvrez la **Package Manager Console** (Tools → NuGet Package Manager → Package Manager Console) et exécutez:
 ```powershell
 Update-Database -Project SchoolAPI
 ```
 
+✅ **C'est prêt!** Vous pouvez maintenant lancer le projet.
+
 ## Lancer le Projet
 
-### Option 1: Avec Visual Studio
-1. Ouvrez `TP6-Mrabet.sln` dans Visual Studio
-2. **Définissez SchoolAPI comme projet de démarrage** en premier
-3. Appuyez sur `F5` pour lancer l'API
-4. **Ouvrez une deuxième instance de Visual Studio** (ou un autre terminal)
-5. Lancez **SchoolWebAppClient**
+### ⭐ Option 1: Avec Visual Studio (RECOMMANDÉE - Lancement Multi-Projets)
 
-### Option 2: Avec la Ligne de Commande
-Terminal 1 - Démarrer l'API:
+1. **Ouvrez la solution** `TP6-Mrabet.sln` dans Visual Studio
+2. Appuyez sur le **dropdown de lancement** (à côté du bouton ▶️ Run)
+3. Sélectionnez le profil **"Nouveau profil"**
+4. Appuyez sur `F5` ou cliquez sur le bouton **Run**
+5. Les **deux projets démarreront automatiquement en parallèle** ✅
+   - **API**: https://localhost:7005 (page Swagger)
+   - **Client**: https://localhost:7100 (interface web)
+
+> **💡 Conseil**: Ce profil de lancement multi-projets est configuré dans `TP6-Mrabet.slnLaunch.user`
+
+### Option 2: Lancement Classique (Une à la Fois)
+1. Ouvrez `TP6-Mrabet.sln` dans Visual Studio
+2. **Définissez SchoolAPI comme projet de démarrage** (clic droit → "Set as Startup Project")
+3. Appuyez sur `F5` pour lancer l'API
+4. Attendez que l'API soit prête (vous verrez la page Swagger)
+5. Cliquez sur le lien "Ouvrir l'interface MVC" dans Swagger
+
+Ou lancez-les manuellement:
+
+**Terminal 1 - Démarrer l'API:**
 ```bash
 cd SchoolAPI
 dotnet run
 ```
 
-Terminal 2 - Démarrer le Client:
+**Terminal 2 - Démarrer le Client:**
 ```bash
 cd SchoolWebAppClient
 dotnet run
