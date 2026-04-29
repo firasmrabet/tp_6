@@ -1,0 +1,99 @@
+@model IEnumerable<SchoolWebAppClient.Models.SchoolClient>
+
+@{
+    ViewData["Title"] = "Liste des écoles";
+}
+
+@section Head {
+    <link rel="stylesheet" href="~/css/schools.css" />
+}
+
+<div class="schools-header">
+    <h1>📚 Gestion des Écoles</h1>
+</div>
+
+<div class="search-section">
+    <form asp-action="GetSchoolByName" method="get" class="search-form">
+        <input type="text" name="name" class="form-control" placeholder="Rechercher une école par nom..." />
+        <button type="submit" class="btn btn-primary">
+            <i class="bi bi-search"></i> Rechercher
+        </button>
+    </form>
+    <div>
+        <a asp-action="CreateSchool" class="btn btn-success btn-add-school">
+            <i class="bi bi-plus-circle"></i> Ajouter une nouvelle école
+        </a>
+    </div>
+</div>
+
+@if (Model.Any())
+{
+    <div class="schools-grid">
+        @foreach (var item in Model)
+        {
+            <div class="school-card">
+                <div class="school-card-header">
+                    <h5>@Html.DisplayFor(m => item.Name)</h5>
+                </div>
+                <div class="school-card-body">
+                    <div class="info-item">
+                        <span class="info-label">Sections:</span>
+                        <span class="info-value">@Html.DisplayFor(m => item.Sections)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Directeur:</span>
+                        <span class="info-value">@Html.DisplayFor(m => item.Director)</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Note:</span>
+                        <span class="info-value">
+                            @if (item.Rating > 0)
+                            {
+                                <span class="rating">@item.Rating.ToString("F1")/10</span>
+                            }
+                            else
+                            {
+                                <span class="text-muted">N/A</span>
+                            }
+                        </span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Website:</span>
+                        <span class="info-value">
+                            @if (!string.IsNullOrEmpty(item.WebSite))
+                            {
+                                <a href="@item.WebSite" target="_blank" class="text-decoration-none">Visiter</a>
+                            }
+                            else
+                            {
+                                <span class="text-muted">N/A</span>
+                            }
+                        </span>
+                    </div>
+                </div>
+                <div class="school-card-footer">
+                    <a asp-action="GetSchoolById" asp-route-id="@item.Id" class="btn btn-sm btn-info">
+                        👁️ Détails
+                    </a>
+                    <a asp-action="EditSchool" asp-route-id="@item.Id" class="btn btn-sm btn-warning">
+                        ✏️ Modifier
+                    </a>
+                    <a asp-action="DeleteSchool" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
+                        🗑️ Supprimer
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="empty-state">
+        <div class="empty-state-icon">📭</div>
+        <h4>Aucune école trouvée</h4>
+        <p>Il n'y a pas encore d'écoles. Commencez par en ajouter une!</p>
+        <a asp-action="CreateSchool" class="btn btn-primary mt-3">
+            <i class="bi bi-plus-circle"></i> Ajouter une école
+        </a>
+    </div>
+}

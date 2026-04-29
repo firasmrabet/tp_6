@@ -1,0 +1,32 @@
+@model SchoolWebAppClient.Models.SchoolClient
+
+@{
+    ViewData["Title"] = "Details de l'ecole";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Ecole : @Model.Name</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Name)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(m => m.Name)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Sections)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(m => m.Sections)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Director)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(m => m.Director)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Rating)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(m => m.Rating)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(m => m.WebSite)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(m => m.WebSite)</dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="EditSchool" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a> |
+    <a asp-action="GetAllSchools" class="btn btn-secondary">Retour a la liste</a>
+</div>

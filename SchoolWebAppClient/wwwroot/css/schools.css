@@ -1,0 +1,389 @@
+.schools-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 50px 30px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
+    animation: slideInDown 0.6s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.schools-header h1 {
+    margin: 0;
+    font-weight: 800;
+    font-size: 2.8rem;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-section {
+    margin-bottom: 45px;
+    text-align: center;
+}
+
+.search-form {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.search-form input {
+    flex: 1;
+    max-width: 400px;
+    padding: 13px 18px;
+    border: 2px solid #e0e7ff;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.search-form input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.search-form button {
+    padding: 13px 28px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.search-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+.btn-add-school {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: white !important;
+    border: none;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+    padding: 13px 30px !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-bottom: 0 !important;
+}
+
+.btn-add-school:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.6) !important;
+    color: white !important;
+}
+
+.schools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 28px;
+    margin-bottom: 40px;
+    padding: 0 10px;
+}
+
+.school-card {
+    background: white;
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.12);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.school-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.school-card:hover {
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 20px 50px rgba(102, 126, 234, 0.25);
+}
+
+.school-card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 25px 22px;
+    position: relative;
+}
+
+.school-card-header h5 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.35rem;
+    letter-spacing: -0.3px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.school-card-body {
+    padding: 25px 22px;
+    flex-grow: 1;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    gap: 12px;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.info-label {
+    font-weight: 700;
+    color: #667eea;
+    min-width: 110px;
+    font-size: 0.95rem;
+}
+
+.info-value {
+    color: #555;
+    text-align: right;
+    word-break: break-word;
+    font-weight: 500;
+}
+
+.rating {
+    display: inline-block;
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.school-card-footer {
+    padding: 18px 22px;
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.school-card-footer .btn {
+    flex: 1;
+    min-width: 90px;
+    font-size: 0.85rem;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.school-card-footer .btn-info {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+}
+
+.school-card-footer .btn-warning {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+}
+
+.school-card-footer .btn-danger {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+}
+
+.school-card-footer .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 80px 40px;
+    color: #999;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.08);
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.empty-state-icon {
+    font-size: 5rem;
+    margin-bottom: 25px;
+}
+
+.empty-state h4 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.empty-state p {
+    color: #999;
+    font-size: 1.05rem;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.empty-state .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    padding: 12px 32px;
+}
+
+.empty-state .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .schools-header {
+        padding: 35px 20px;
+        margin-bottom: 35px;
+    }
+
+    .schools-header h1 {
+        font-size: 2rem;
+    }
+
+    .schools-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0;
+    }
+
+    .search-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-form input {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .search-form button {
+        width: 100%;
+    }
+
+    .school-card-footer {
+        flex-direction: column;
+    }
+
+    .school-card-footer .btn {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .empty-state {
+        padding: 60px 25px;
+    }
+
+    .empty-state-icon {
+        font-size: 3.5rem;
+    }
+
+    .empty-state h4 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .schools-header {
+        padding: 25px 15px;
+        margin-bottom: 25px;
+        border-radius: 15px;
+    }
+
+    .schools-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .search-form input {
+        font-size: 16px;
+    }
+
+    .school-card {
+        border-radius: 15px;
+    }
+
+    .school-card-header h5 {
+        font-size: 1.15rem;
+    }
+
+    .school-card-body,
+    .school-card-header,
+    .school-card-footer {
+        padding: 18px 15px;
+    }
+
+    .info-label {
+        min-width: 90px;
+        font-size: 0.85rem;
+    }
+
+    .empty-state {
+        padding: 40px 15px;
+    }
+
+    .empty-state-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+
+    .empty-state h4 {
+        font-size: 1.2rem;
+    }
+
+    .empty-state p {
+        font-size: 0.95rem;
+    }
+}
